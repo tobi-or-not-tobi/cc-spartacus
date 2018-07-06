@@ -13,8 +13,13 @@
 
     "aspects": [
         {
-            "name": "backoffice",
-            "properties": [],
+            "name": "hac",
+            "properties": [
+                {
+                    "key": "hac.test.property.1",
+                    "value": "hac.test.property.1.value"
+                }
+            ],
             "webapps": [
                 {
                     "name": "hac",
