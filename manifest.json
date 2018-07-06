@@ -2,80 +2,19 @@
     "name": "cc-spartacus",
     "commerceSuiteVersion": "6.7.0.1",
     "extensions": [
-        "yacceleratorstorefront",
         "backoffice",
         "platformbackoffice",
-        "smartedit",
-        "electronicsstore",
-        "modeltacceleratorservices",
         "apparelstore",
         "electronicsstore",
+        "modeltacceleratorservices",
         "ycommercewebservices",
         "cmsoccaddon"
-    ],
-    "storeFrontExtension": "yacceleratorstorefront",
-    "storeFrontWebRoot": "/yacceleratorstorefront",
-
-    "properties": [
-        {
-            "key": "spring.session.enabled",
-            "value": "true"
-        },
-        {
-            "key": "spring.session.yacceleratorstorefront.save",
-            "value": "async"
-        },
-        {
-            "key": "spring.session.yacceleratorstorefront.cookie.name",
-            "value": "JSESSIONID"
-        },
-        {
-            "key": "spring.session.yacceleratorstorefront.cookie.path",
-            "value": "/"
-        },
-        {
-            "key": "storefrontContextRoot",
-            "value": ""
-        }
-    ],
-
-    "webapps": [
-        {
-            "name": "mediaweb",
-            "contextPath": "/medias"
-        },
-        {
-            "name": "yacceleratorstorefront",
-            "contextPath": ""
-        },
-        {
-            "name": "acceleratorservices",
-            "contextPath": "/acceleratorservices"
-        }
-    ],
-
-    "storefrontAddons": [
-        {
-            "addon": "cmsoccaddon",
-            "storefront": "yacceleratorstorefront",
-            "template": "ycommercewebservices"
-        }
     ],
 
     "aspects": [
         {
             "name": "backoffice",
-            "properties": [
-                {
-                    "key": "test.property.1",
-                    "value": "test.property-1-value-prod-backoffice",
-                    "persona": "production"
-                },
-                {
-                    "key": "test.property.2",
-                    "value": "test.property-2-value-backoffice"
-                }
-            ],
+            "properties": [],
             "webapps": [
                 {
                     "name": "hac",
@@ -90,11 +29,7 @@
                     "contextPath": ""
                 },
                 {
-                    "name": "smartedit",
-                    "contextPath": "/smartedit"
-                },
-                {
-                    "name": "occ",
+                    "name": "ycommercewebservices",
                     "contextPath": "/rest"
                 }
             ]
