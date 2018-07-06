@@ -1,0 +1,56 @@
+{
+    "name": "cc-spartacus",
+    "commerceSuiteVersion": "6.7.0.1",
+    "extensions": [
+        "yacceleratorstorefront",
+        "backoffice",
+        "platformbackoffice",
+        "smartedit",
+        "electronicsstore",
+        "modeltacceleratorservices",
+        "apparelstore",
+        "electronicsstore",
+        "ycommercewebservices",
+        "cmsoccaddon"
+    ],
+    "storeFrontExtension": "yacceleratorstorefront",
+    "storeFrontWebRoot": "/yacceleratorstorefront",
+
+    "properties": [
+        {
+            "key": "spring.session.enabled",
+            "value": "true"
+        },
+        {
+            "key": "spring.session.yacceleratorstorefront.save",
+            "value": "async"
+        },
+        {
+            "key": "spring.session.yacceleratorstorefront.cookie.name",
+            "value": "JSESSIONID"
+        },
+        {
+            "key": "spring.session.yacceleratorstorefront.cookie.path",
+            "value": "/"
+        },
+        {
+            "key": "storefrontContextRoot",
+            "value": ""
+        }
+    ],
+
+    "webapps": [
+        {
+            "name": "mediaweb",
+            "contextPath": "/medias"
+        },
+        {
+            "name": "yacceleratorstorefront",
+            "contextPath": ""
+        },
+        {
+            "name": "acceleratorservices",
+            "contextPath": "/acceleratorservices"
+        }
+    ]
+}
