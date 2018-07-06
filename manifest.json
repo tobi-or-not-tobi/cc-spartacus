@@ -52,5 +52,13 @@
             "name": "acceleratorservices",
             "contextPath": "/acceleratorservices"
         }
+    ],
+
+    "storefrontAddons": [
+        {
+            "addon": "cmsoccaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "ycommercewebservices"
+        }
     ]
 }
