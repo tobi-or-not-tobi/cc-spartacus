@@ -26,13 +26,18 @@
                 },
                 {
                     "name": "backoffice",
-                    "contextPath": ""
+                    "contextPath": "/backoffice"
+                },
+                {
+                    "name": "oauth2",
+                    "contextPath": "/oauth2"
                 },
                 {
                     "name": "ycommercewebservices",
-                    "contextPath": "/rest"
+                    "contextPath": "/ycommercewebservices"
                 }
             ]
         }
-    ]
+    ],
+    "skipOrchestrationTests": "true"
 }
