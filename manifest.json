@@ -44,5 +44,14 @@
             ]
         }
     ],
+    "tests": {
+        "extensions": ["ycommercewebservices"],
+        "annotations": ["UnitTests", "IntegrationTests"],
+        "packages": ["de.hybris.platform.*"]
+    },
+    "webTests": {
+        "extensions": ["ycommercewebservices"],
+        "excludedPackages": ["de.hybris.platform.*"]
+    },
     "skipOrchestrationTests": "true"
 }
