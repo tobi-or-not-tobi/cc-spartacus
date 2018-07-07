@@ -42,6 +42,31 @@
                     "contextPath": "/ycommercewebservices"
                 }
             ]
+        },
+        {
+            "name": "backoffice",
+            "webapps": [
+                {
+                    "name": "hac",
+                    "contextPath": "/hac"
+                },
+                {
+                    "name": "mediaweb",
+                    "contextPath": "/medias"
+                },
+                {
+                    "name": "backoffice",
+                    "contextPath": ""
+                },
+                {
+                    "name": "oauth2",
+                    "contextPath": "/oauth2"
+                },
+                {
+                    "name": "ycommercewebservices",
+                    "contextPath": "/ycommercewebservices"
+                }
+            ]
         }
     ],
     "tests": {
