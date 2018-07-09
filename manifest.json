@@ -8,41 +8,21 @@
         "electronicsstore",
         "modeltacceleratorservices",
         "ycommercewebservices",
-        "cmsoccaddon"
+        "cmsoccaddon",
+        "yacceleratorcore",
+        "yacceleratorinitialdata",
+        "yacceleratorfacades",
+        "yacceleratorstorefront"
     ],
 
-    "aspects": [
+    "storefrontAddons": [
         {
-            "name": "hac",
-            "properties": [
-                {
-                    "key": "hac.test.property.1",
-                    "value": "hac.test.property.1.value"
-                }
-            ],
-            "webapps": [
-                {
-                    "name": "hac",
-                    "contextPath": "/hac"
-                },
-                {
-                    "name": "mediaweb",
-                    "contextPath": "/medias"
-                },
-                {
-                    "name": "backoffice",
-                    "contextPath": "/backoffice"
-                },
-                {
-                    "name": "oauth2",
-                    "contextPath": "/oauth2"
-                },
-                {
-                    "name": "ycommercewebservices",
-                    "contextPath": "/ycommercewebservices"
-                }
-            ]
-        },
+            "addon": "cmsoccaddon",
+            "storefront": "ycommercewebservices",
+            "template": "ycommercewebservices"
+        }
+    ],
+    "aspects": [
         {
             "name": "backoffice",
             "webapps": [
