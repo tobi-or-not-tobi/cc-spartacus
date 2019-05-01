@@ -56,11 +56,6 @@
             "addon": "cmsoccaddon",
             "storefront": "ycommercewebservices",
             "template": "ycommercewebservices"
-        },
-        {
-            "addon": "spacceleratorsamplesaddon",
-            "storefront": "yacceleratorstorefront",
-            "template": "yacceleratorstorefront"
         }
     ],
     "properties": [
