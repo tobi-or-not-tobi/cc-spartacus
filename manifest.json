@@ -1,30 +1,324 @@
 {
-    "name": "cc-spartacus",
-    "commerceSuiteVersion": "6.7.0.1",
+    "commerceSuiteArtifact": "de.hybris.platform.suite:commerce-suite:1905.0.190322005",
     "extensions": [
-        "backoffice",
-        "platformbackoffice",
-        "apparelstore",
-        "electronicsstore",
-        "modeltacceleratorservices",
-        "ycommercewebservices",
-        "cmsoccaddon",
-        "yacceleratorcore",
+        "adaptivesearchsolr",
+        "adaptivesearchbackoffice",
+        "adaptivesearchsamplesaddon",
+        "adaptivesearchwebservices",
+        "commerceservicesbackoffice",
+        "solrfacetsearchbackoffice",
+        "solrserver",
         "yacceleratorinitialdata",
-        "yacceleratorfacades",
-        "yacceleratorstorefront"
+        "yacceleratorstorefront",
+        "ycommercewebservices",
+        "beautystore",
+        "acceleratorwebservicesaddon",
+        "customersupportbackoffice",
+        "customerticketingaddon",
+        "commerceorgsamplesaddon",
+        "rulebuilderbackoffice",
+        "couponbackoffice",
+        "droolsruleengineservices",
+        "couponfacades",
+        "couponservices",
+        "promotionenginesamplesaddon",
+        "cmswebservices",
+        "smarteditwebservices",
+        "cmssmarteditwebservices",
+        "permissionswebservices",
+        "smarteditaddon",
+        "smartedit",
+        "cmssmartedit",
+        "cmsbackoffice",
+        "multicountrysampledataaddon",
+        "cmsoccaddon",
+        "previewpersonalizationweb",
+        "personalizationcmsweb",
+        "personalizationsmartedit",
+        "personalizationpromotionssmartedit",
+        "personalizationsampledataaddon",
+        "personalizationpromotions",
+        "personalizationpromotionsweb",
+        "personalizationservicesbackoffice",
+        "personalizationpromotionsbackoffice",
+        "personalizationcmsbackoffice",
+        "personalizationsearchbackoffice",
+        "personalizationsearchsmartedit",
+        "personalizationsearchweb",
+        "personalizationsearchsamplesaddon",
+        "textfieldconfiguratortemplatebackoffice",
+        "textfieldconfiguratortemplateaddon",
+        "assistedservicestorefront",
+        "assistedservicewebservices",
+        "assistedservicepromotionaddon",
+        "pcmbackofficesamplesaddon",
+        "modeltacceleratorservices",
+        "azurecloudhotfolder",
+        "personalizationintegration",
+        "personalizationyprofile",
+        "personalizationaddon",
+        "profileservices",
+        "profiletagaddon",
+        "ordermanagementaddon",
+        "ordermanagementfacades",
+        "ordermanagementwebservices",
+        "warehousing",
+        "warehousingbackoffice",
+        "warehousingfacades",
+        "warehousingwebservices",
+        "outboundservices",
+        "odata2webservices",
+        "odata2webservicesfeaturetests",
+        "commercewebservicesdata",
+        "e2eservices",
+        "e2eavalarataxservices",
+        "e2eordermanagement",
+        "e2ecybersourceservices",
+        "e2econfigurationfacades",
+        "e2econfigurationwebservices",
+        "e2eaddon",
+        "kymaintegrationbackoffice",
+        "integrationservices",
+        "odata2services",
+        "inboundservices",
+        "outboundsync",
+        "samlsinglesignon",
+        "samlssobackoffice"
     ],
-
     "storefrontAddons": [
+        {
+            "addon": "commerceorgsamplesaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "promotionenginesamplesaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "smarteditaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "textfieldconfiguratortemplateaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "assistedservicestorefront",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "assistedservicepromotionaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "customerticketingaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "adaptivesearchsamplesaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "multicountrysampledataaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "pcmbackofficesamplesaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "personalizationsearchsamplesaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "personalizationsampledataaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "personalizationaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "acceleratorwebservicesaddon",
+            "storefront": "ycommercewebservices",
+            "template": "ycommercewebservices"
+        },
+        {
+            "addon": "profiletagaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
         {
             "addon": "cmsoccaddon",
             "storefront": "ycommercewebservices",
             "template": "ycommercewebservices"
+        },
+        {
+            "addon": "ordermanagementaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        },
+        {
+            "addon": "e2eaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
+        }
+    ],
+    "properties": [
+        {
+            "key": "lang.packs",
+            "value": "de,en,es,es_CO,fr,it,ja,ko,pl,pt,ru,zh,zh_TW,hi,id,cs,cy"
+        },
+        {
+            "key": "endpoint.hac.platform.init.disabled",
+            "value": "true"
+        },
+        {
+            "key": "endpoint.hac.platform.update.disabled",
+            "value": "true"
+        },
+        {
+            "key": "corsfilter.acceleratorservices.allowedOrigins",
+            "value": "*"
+        },
+        {
+            "key": "corsfilter.ycommercewebservices.allowedOrigins",
+            "value": "*"
+        },
+        {
+            "key": "oauth2.kyma.algorithm",
+            "value": "RS256"
+        },
+        {
+            "key": "oauth2.kyma.responseTypes",
+            "value": "code,code id_token,id_token,token id_token"
+        },
+        {
+            "key": "oauth2.kyma.kid",
+            "value": "test1"
+        },
+        {
+            "key": "oauth2.kyma.keystore.location",
+            "value": "/security/keystore.jks"
+        },
+        {
+            "key": "oauth2.kyma.keystore.password",
+            "value": "nimda123"
+        },
+        {
+            "key": "oauth2.kyma.public.address",
+            "value": "https://api.cehm0u1-sccdemoin1-d1-public.model-t.myhybris.cloud"
+        },
+        {
+            "key": "googleApiKey",
+            "value": ""
+        },
+        {
+            "key": "multicountrysampledataaddon.import.active",
+            "value": "false"
+        },
+        {
+            "key": "apiregistryservices.events.exporting",
+            "value": "false"
+        },
+        {
+            "key": "deployment.api.endpoint",
+            "value": "https://api.cehm0u1-sccdemoin1-d1-public.model-t.myhybris.cloud"
+        },
+        {
+            "key": "cloud.hotfolder.default.mapping.file.name.pattern",
+            "value": "^(customer|product|url_media|stock|price|stock_level|address|multi_code_coupon|single_code_coupon|currency|varianttype|category|keyword)(-\\w{2})?-\\d+.*"
+        },
+        {
+            "key": "xss.filter.header.X-Frame-Options",
+            "value": "ALLOW-FROM *"
+        },
+        {
+            "key": "xss.filter.header.Access-Control-Allow-Origin",
+            "value": "*"
+        },
+        {
+            "key": "corsfilter.default.allowedOrigins",
+            "value": "*"
+        },
+        {
+            "key": "corsfilter.default.allowedMethods",
+            "value": "GET PUT POST OPTIONS DELETE"
+        },
+        {
+            "key": "corsfilter.default.allowedHeaders",
+            "value": "origin content-type accept authorization"
+        },
+        {
+            "key": "init.admin.password",
+            "value": "1234"
+        },
+        {
+            "key": "sop.post.url",
+            "value": "https://testsecureacceptance.cybersource.com/silent/pay"
+        },
+        {
+            "key": "hop.cybersource.sharedSecret",
+            "value": "c89e9ca031f3456ca54fb17a2b37e6196dd4a86197fc439e9bed19f1ecee0d5b158e23a60df64f3594610eb698931d924c68af5a25d6416c9ff9bcd58a2bbe4a29d569de842a4377a2350985725a1e2791d2bf0101c64066ad6feedbaec35859f8433e4519704923a683cad35f96dc28536568362be946b695ad8e1bd6f9b494"
+        },
+        {
+            "key": "ycommercewebservices.xss.filter.header.Access-Control-Allow-Headers",
+            "value": "Origin, Authorization, Accept, Content-Type"
+        },
+        {
+            "key": "ycommercewebservices.xss.filter.header.Access-Control-Allow-Methods",
+            "value": "PUT, DELETE, POST, OPTIONS, HEAD, GET, PATCH"
+        },
+        {
+            "key": "sso.entity.id",
+            "value": "scc:sap:cx:de"
+        },
+        {
+            "key": "sso.metadata.location",
+            "value": "classpath:e2eservices/security/metadata.xml"
+        },
+        {
+            "key": "sso.keystore.location",
+            "value": "classpath:e2eservices/security/samlKeystore.jks"
+        },
+        {
+            "key": "sso.usergroup.attribute.key",
+            "value": "groups"
+        },
+        {
+            "key": "sso.firstname.attribute.key",
+            "value": "first_name"
+        },
+        {
+            "key": "sso.lastname.attribute.key",
+            "value": "last_name"
+        },
+        {
+            "key": "sso.userid.attribute.key",
+            "value": "mail"
+        },
+        {
+            "key": "sso.database.usergroup.mapping",
+            "value": "true"
         }
     ],
     "aspects": [
         {
             "name": "backoffice",
+            "properties": [],
             "webapps": [
                 {
                     "name": "hac",
@@ -37,26 +331,184 @@
                 {
                     "name": "backoffice",
                     "contextPath": "/backoffice"
+                }
+            ]
+        },
+        {
+            "name": "accstorefront",
+            "properties": [
+                {
+                    "key": "spring.session.enabled",
+                    "value": "true"
                 },
                 {
-                    "name": "oauth2",
-                    "contextPath": "/oauth2"
+                    "key": "spring.session.yacceleratorstorefront.save",
+                    "value": "async"
+                },
+                {
+                    "key": "spring.session.yacceleratorstorefront.cookie.name",
+                    "value": "JSESSIONID"
+                },
+                {
+                    "key": "spring.session.yacceleratorstorefront.cookie.path",
+                    "value": "/"
+                },
+                {
+                    "key": "storefrontContextRoot",
+                    "value": ""
+                },
+                {
+                    "key": "website.beauty.http",
+                    "value": "http://accstorefront.cehm0u1-sccdemoin1-d1-public.model-t.myhybris.cloud"
+                },
+                {
+                    "key": "website.beauty.https",
+                    "value": "https://accstorefront.cehm0u1-sccdemoin1-d1-public.model-t.myhybris.cloud"
+                },
+                {
+                    "key": "xss.filter.header.X-Frame-Options",
+                    "value": ""
+                }
+            ],
+            "webapps": [
+                {
+                    "name": "mediaweb",
+                    "contextPath": "/medias"
+                },
+                {
+                    "name": "yacceleratorstorefront",
+                    "contextPath": ""
+                },
+                {
+                    "name": "acceleratorservices",
+                    "contextPath": "/acceleratorservices"
+                },
+                {
+                    "name": "hac",
+                    "contextPath": "/hac"
+                }
+            ]
+        },
+        {
+            "name": "api",
+            "properties": [
+                {
+                    "key": "storefrontContextRoot",
+                    "value": "/yacceleratorstorefront"
+                },
+                {
+                    "key": "website.beauty.http",
+                    "value": "http://accstorefront.cehm0u1-sccdemoin1-d1-public.model-t.myhybris.cloud"
+                },
+                {
+                    "key": "website.beauty.https",
+                    "value": "https://accstorefront.cehm0u1-sccdemoin1-d1-public.model-t.myhybris.cloud"
+                }
+            ],
+            "webapps": [
+                {
+                    "name": "mediaweb",
+                    "contextPath": "/medias"
+                },
+                {
+                    "name": "adaptivesearchwebservices",
+                    "contextPath": "/adaptivesearchwebservices"
+                },
+                {
+                    "name": "odata2webservices"
+                },
+                {
+                    "name": "yacceleratorstorefront",
+                    "contextPath": "/yacceleratorstorefront"
+                },
+                {
+                    "name": "acceleratorservices",
+                    "contextPath": "/acceleratorservices"
                 },
                 {
                     "name": "ycommercewebservices",
                     "contextPath": "/rest"
+                },
+                {
+                    "name": "smartedit",
+                    "contextPath": "/smartedit"
+                },
+                {
+                    "name": "cmssmartedit",
+                    "contextPath": "/cmssmartedit"
+                },
+                {
+                    "name": "smarteditwebservices",
+                    "contextPath": "/smarteditwebservices"
+                },
+                {
+                    "name": "cmssmarteditwebservices",
+                    "contextPath": "/cmssmarteditwebservices"
+                },
+                {
+                    "name": "personalizationsmartedit",
+                    "contextPath": "/personalizationsmartedit"
+                },
+                {
+                    "name": "personalizationpromotionssmartedit",
+                    "contextPath": "/personalizationpromotionssmartedit"
+                },
+                {
+                    "name": "oauth2",
+                    "contextPath": "/authorizationserver"
+                },
+                {
+                    "name": "cmswebservices",
+                    "contextPath": "/cmswebservices"
+                },
+                {
+                    "name": "permissionswebservices",
+                    "contextPath": "/permissionswebservices"
+                },
+                {
+                    "name": "previewwebservices",
+                    "contextPath": "/previewwebservices"
+                },
+                {
+                    "name": "personalizationwebservices",
+                    "contextPath": "/personalizationwebservices"
+                },
+                {
+                    "name": "personalizationsearchsmartedit",
+                    "contextPath": "/personalizationsearchsmartedit"
+                },
+                {
+                    "name": "e2econfigurationwebservices",
+                    "contextPath": "/e2econfigurationwebservices"
+                },
+                {
+                    "name": "ordermanagementwebservices",
+                    "contextPath": "/ordermanagementwebservices"
+                },
+                {
+                    "name": "warehousingwebservices",
+                    "contextPath": "/warehousingwebservices"
+                }
+            ]
+        },
+        {
+            "name": "backgroundProcessing",
+            "properties": [
+                {
+                    "key": "cluster.node.groups",
+                    "value": "integration,yHotfolderCandidate"
+                }
+            ],
+            "webapps": [
+                {
+                    "name": "hac",
+                    "contextPath": ""
+                },
+                {
+                    "name": "mediaweb",
+                    "contextPath": "/medias"
                 }
             ]
         }
-    ],
-    "tests": {
-        "extensions": ["ycommercewebservices"],
-        "annotations": ["UnitTests", "IntegrationTests"],
-        "packages": ["de.hybris.platform.*"]
-    },
-    "webTests": {
-        "extensions": ["ycommercewebservices"],
-        "excludedPackages": ["de.hybris.platform.*"]
-    },
-    "skipOrchestrationTests": "true"
+    ]
 }
