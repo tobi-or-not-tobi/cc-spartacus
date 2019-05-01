@@ -1,5 +1,5 @@
 {
-    "commerceSuiteArtifact": "de.hybris.platform.suite:commerce-suite:1905.0.190322005",
+    "commerceSuiteArtifact": "de.hybris.platform.suite:commerce-suite:1905.0.190429015",
     "extensions": [
         "adaptivesearchsolr",
         "adaptivesearchbackoffice",
