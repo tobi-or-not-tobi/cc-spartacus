@@ -9,7 +9,17 @@ import { AppComponent } from './app.component';
     BrowserModule,
     StorefrontModule.withConfig({
       site: {
-        baseSite: 'electronics-spa'
+        baseSite: 'electronics'
+      },
+      siteContext: {
+        urlEncodingParameters: ['BASE_SITE', 'LANGUAGE', 'CURRENCY'],
+        parameters: {
+          BASE_SITE: {
+            values: ['electronics-spa', 'electronics', 'apparel-de', 'apparel-uk'],
+            defaultValue: 'electronics',
+            persistence: 'route'
+          }
+        }
       }
     })
   ],
