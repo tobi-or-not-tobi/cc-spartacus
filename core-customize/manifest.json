@@ -44,7 +44,8 @@
         "yacceleratorfacades",
         "yacceleratorstorefront",
         "ycommercewebservices",
-        "ycommercewebservicestest"
+        "ycommercewebservicestest",
+        "cmsoccaddon"
     ],
     "storefrontAddons": [
         {
@@ -80,22 +81,6 @@
             "value": "*"
         },
         {
-            "key": "website.electronics.http",
-            "value": "http://storefront.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/yacceleratorstorefront"
-        },
-        {
-            "key": "website.electronics.https",
-            "value": "https://storefront.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/yacceleratorstorefront"
-        },
-        {
-            "key": "website.electronics-spa.http",
-            "value": "http://storefront.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com:4200"
-        },
-        {
-            "key": "website.electronics.https",
-            "value": "https://storefront.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com:4200"
-        },
-        {
             "key": "sop.post.url",
             "value": "https://storefront.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/acceleratorservices/sop-mock/process"
         }
@@ -123,10 +108,6 @@
             "name": "accstorefront",
             "webapps": [
                 {
-                    "name": "hac",
-                    "contextPath": "/hac"
-                },
-                {
                     "name": "acceleratorservices",
                     "contextPath": "/acceleratorservices"
                 },
@@ -138,6 +119,16 @@
                     "name": "mediaweb",
                     "contextPath": "/backgroundmedias"
                 },
+                {
+                    "name": "oauth2",
+                    "contextPath": "/authorizationserver"
+                }
+            ]
+        },
+        {
+            "name": "api",
+            "properties": [],
+            "webapps": [
                 {
                     "name": "oauth2",
                     "contextPath": "/authorizationserver"
