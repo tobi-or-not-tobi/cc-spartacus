@@ -40,5 +40,10 @@
 	<bean id="SpacceleratorsamplesaddonBeforeViewHandlerListMergeDirective" depends-on="beforeViewHandlersList" parent="listMergeDirective">
 		<property name="add" ref="getSpacceleratorsamplesaddonBeforeViewHandler"/>
 	</bean>
+	
+	<bean id="SiteContextSelectorRendererMapping" parent="addonCmsComponentRendererMapping">
+		<property name="typeCode" value="SiteContextSelectorComponent" />
+		<property name="renderer" ref="genericAddOnCMSComponentRenderer" />
+	</bean>
 
 </beans>
