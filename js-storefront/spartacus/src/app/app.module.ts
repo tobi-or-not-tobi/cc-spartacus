@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { StorefrontModule } from '@spartacus/storefront';
+import { StorefrontModule, translations } from '@spartacus/storefront';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -19,6 +19,14 @@ import { AppComponent } from './app.component';
             defaultValue: 'electronics',
             persistence: 'route'
           }
+        }
+      },
+      i18n: {
+        resources: translations
+      },
+      backend: {
+        media: {
+          baseUrl: 'https://accstorefront.cqz1m-softwarea1-d23-public.model-t.cc.commerce.ondemand.com/'
         }
       }
     })
