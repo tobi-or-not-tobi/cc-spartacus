@@ -92,11 +92,7 @@
             "webapps": [
                 {
                     "name": "hac",
-                    "contextPath": "/backofficehac"
-                },
-                {
-                    "name": "mediaweb",
-                    "contextPath": "/backofficemedias"
+                    "contextPath": "/hac"
                 },
                 {
                     "name": "backoffice",
@@ -114,14 +110,6 @@
                 {
                     "name": "mediaweb",
                     "contextPath": "/medias"
-                },
-                {
-                    "name": "mediaweb",
-                    "contextPath": "/backgroundmedias"
-                },
-                {
-                    "name": "oauth2",
-                    "contextPath": "/authorizationserver"
                 }
             ]
         },
