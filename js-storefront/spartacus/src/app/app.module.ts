@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { StorefrontModule, translations } from '@spartacus/storefront';
+import { ConfigModule } from '@spartacus/core';
+import { defaultCmsContentConfig, StorefrontModule, translations } from '@spartacus/storefront';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AppComponent } from './app.component';
           baseUrl: 'https://accstorefront.cqz1m-softwarea1-d23-public.model-t.cc.commerce.ondemand.com/'
         }
       }
-    })
+    }),
+    ConfigModule.withConfigFactory(defaultCmsContentConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
