@@ -8,9 +8,6 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     StorefrontModule.withConfig({
-      site: {
-        baseSite: 'electronics'
-      },
       siteContext: {
         urlEncodingParameters: ['BASE_SITE', 'LANGUAGE', 'CURRENCY'],
         parameters: {
