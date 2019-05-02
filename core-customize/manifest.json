@@ -47,7 +47,16 @@
         "yacceleratorstorefront",
         "ycommercewebservices",
         "ycommercewebservicestest",
-        "cmsoccaddon"
+        "cmsoccaddon",
+
+        "smarteditwebservices",
+        "permissionswebservices",
+        "smarteditaddon",
+        "smartedit",
+        "cmssmartedit",
+        "cmssmarteditwebservices",
+        "cmswebservices",
+        "previewwebservices"
     ],
     "storefrontAddons": [
         {
@@ -104,6 +113,44 @@
                 {
                     "name": "backoffice",
                     "contextPath": "/backoffice"
+                },
+
+                {
+                    "name": "mediaweb",
+                    "contextPath": "/medias"
+                },
+                {
+                    "name": "smartedit",
+                    "contextPath": "/smartedit"
+                },
+                {
+                    "name": "cmssmartedit",
+                    "contextPath": "/cmssmartedit"
+                },
+                {
+                    "name": "smarteditwebservices",
+                    "contextPath": "/smarteditwebservices"
+                },
+                {
+                    "name": "cmssmarteditwebservices",
+                    "contextPath": "/cmssmarteditwebservices"
+                },
+
+                {
+                    "name": "oauth2",
+                    "contextPath": "/authorizationserver"
+                },
+                {
+                    "name": "cmswebservices",
+                    "contextPath": "/cmswebservices"
+                },
+                {
+                    "name": "previewwebservices",
+                    "contextPath": "/previewwebservices"
+                },
+                {
+                    "name": "permissionswebservices",
+                    "contextPath": "/permissionswebservices"
                 }
             ]
         },
