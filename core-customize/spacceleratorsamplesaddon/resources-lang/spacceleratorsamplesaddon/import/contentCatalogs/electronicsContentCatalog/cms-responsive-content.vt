@@ -1,0 +1,79 @@
+# -----------------------------------------------------------------------
+# [y] hybris Platform
+#
+# Copyright (c) 2018 SAP SE or an SAP affiliate company.  All rights reserved.
+#
+# This software is the confidential and proprietary information of SAP
+# ("Confidential Information"). You shall not disclose such Confidential
+# Information and shall use it only in accordance with the terms of the
+# license agreement you entered into with SAP.
+# -----------------------------------------------------------------------
+#set($escPicture=$esc.java('$picture[lang=$lang]'))
+#set($escContentCV=$esc.java('$contentCV[unique=true]'))
+#set( $escMedias=$esc.java('$medias') )
+#set( $escMediaContainer=$esc.java('$mediaContainer') )
+# Import the CMS content for the electronics site
+#
+\$contentCatalog=electronics-spaContentCatalog
+\$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=\$contentCatalog]),CatalogVersion.version[default=Staged])[default=\$contentCatalog:Staged]
+\$siteResource=jar:de.hybris.platform.spacceleratorsamplesaddon.constants.SpacceleratorsamplesaddonConstants&/spacceleratorsamplesaddon/import/contentCatalogs/electronicsContentCatalog
+\$picture=media(code, \$contentCV)
+\$medias=medias(code, \$contentCV);
+\$mediaContainer=media(qualifier, \$contentCV)[lang=\$lang];
+\$lang=$lang
+
+# CMS Link Components
+#set ($data = $query.load('cms-responsive-content', 'CMSLinkComponent') )
+UPDATE CMSLinkComponent;$escContentCV;uid[unique=true];linkName[lang=$lang]
+#foreach( $row in $data )
+ ;;$row.key;"$row.values.linkName"
+#end
+
+# Site Logo Media
+INSERT_UPDATE Media;$escContentCV;code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images'];altText
+;;/images/theme/SAP_scrn_R.png;SAP_scrn_R.png;\$siteResource/images/theme/SAP_scrn_R.png;image/png;;"SAP Commerce"
+
+# Site Logo Component
+#set ( $logobannercomponent = $query.load('cms-responsive-content', 'LogoSimpleBannerComponent') )
+UPDATE SimpleBannerComponent;$escContentCV;uid[unique=true];$escPicture
+#foreach( $row in $logobannercomponent)
+;;$row.key;$row.values.picture
+#end
+
+####################################
+# Responsive Error page
+####################################
+
+#set ( $media = $query.load('cms-responsive-content', 'MediaMultiformat') )
+INSERT_UPDATE Media;mediaFormat(qualifier);$escContentCV;code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/svg+xml'];realfilename;folder(qualifier)[default='images'];altText
+#foreach( $row in $media )
+;$row.values.format;;$row.key;$row.values.media;$row.values.mime;$row.values.realfilename;;"$row.values.altText"
+#end
+
+#set ($data = $query.load('cms-responsive-content', 'MediaContainer') )
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$escMedias;$escContentCV
+#foreach( $row in $data )
+;$row.key;$row.values.medias
+#end
+
+#set ($data = $query.load('cms-responsive-content', 'SimpleResponsiveBannerComponent') )
+UPDATE SimpleResponsiveBannerComponent;$escContentCV;uid[unique=true];$escMediaContainer
+#foreach( $row in $data )
+;;$row.key;$row.values.mediaContainer
+#end
+
+# Pages
+#macro( generateImpexData $fileName $pageType $comment)
+    #set( $pageRows = $query.load($fileName, $pageType) )
+    #if($pageRows.size() != 0)
+
+# $comment
+UPDATE $pageType;$escContentCV;uid[unique=true];title[lang=\$lang]
+#foreach( $row in $pageRows )
+ ;;$row.key;"$row.values.title"
+#end
+
+    #end
+#end
+
+#generateImpexData('cms-responsive-content', 'ContentPage', 'Content Pages')

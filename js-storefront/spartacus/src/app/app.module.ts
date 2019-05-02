@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
         parameters: {
           BASE_SITE: {
             values: ['electronics-spa', 'electronics', 'apparel-de', 'apparel-uk'],
-            defaultValue: 'electronics',
+            defaultValue: 'electronics-spa',
             persistence: 'route'
           }
         }

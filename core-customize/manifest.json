@@ -20,6 +20,7 @@
         "commerceservices",
         "commerceservicesbackoffice",
         "commercewebservicescommons",
+        "commercewebservicesdata",
         "couponservices",
         "couponfacades",
         "couponbackoffice",
@@ -35,6 +36,7 @@
         "rulebuilderbackoffice",
         "solrserver",
         "solrfacetsearchbackoffice",
+        "spacceleratorsamplesaddon",
         "ticketsystembackoffice",
         "wishlist",
         "yacceleratorfulfilmentprocess",
@@ -57,6 +59,11 @@
             "addon": "cmsoccaddon",
             "storefront": "ycommercewebservices",
             "template": "ycommercewebservices"
+        },
+        {
+            "addon": "spacceleratorsamplesaddon",
+            "storefront": "yacceleratorstorefront",
+            "template": "yacceleratorstorefront"
         }
     ],
     "properties": [
