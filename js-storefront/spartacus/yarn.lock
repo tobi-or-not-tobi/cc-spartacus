@@ -382,19 +382,19 @@
 
 "@spartacus/core@https://github.com/SAP/cloud-commerce-spartacus-storefront-core-builds":
   version "0.1.0-alpha.4"
-  resolved "https://github.com/SAP/cloud-commerce-spartacus-storefront-core-builds#010bb506f7d036ad144cc06ae5425b890ab23faf"
+  resolved "https://github.com/SAP/cloud-commerce-spartacus-storefront-core-builds#eddd4276911abee9f3527b4e340cd41fbeee47ae"
   dependencies:
     tslib "^1.9.0"
 
 "@spartacus/storefront@https://github.com/SAP/cloud-commerce-spartacus-storefront-storefront-builds":
   version "0.1.0-alpha.5"
-  resolved "https://github.com/SAP/cloud-commerce-spartacus-storefront-storefront-builds#8756879c0356c054127450f0f24f59fdea3fe4bb"
+  resolved "https://github.com/SAP/cloud-commerce-spartacus-storefront-storefront-builds#f495d4b5cc09d3549b7e3e281499501cce4b3e66"
   dependencies:
     tslib "^1.9.0"
 
 "@spartacus/styles@https://github.com/SAP/cloud-commerce-spartacus-storefront-styles-builds":
   version "0.1.0-alpha.4"
-  resolved "https://github.com/SAP/cloud-commerce-spartacus-storefront-styles-builds#186ba22441b3baa8e3a356a3f4e5746756917d0b"
+  resolved "https://github.com/SAP/cloud-commerce-spartacus-storefront-styles-builds#8e933785aa969f91dfe3fce384ded903403118e0"
   dependencies:
     hamburgers "^1.1.3"
 
