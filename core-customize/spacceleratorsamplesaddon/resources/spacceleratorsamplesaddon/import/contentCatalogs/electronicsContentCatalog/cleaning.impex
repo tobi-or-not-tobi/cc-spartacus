@@ -83,28 +83,16 @@ REMOVE ContentPage;$contentCV[unique=true];uid[unique=true]
 ###### Remove unused navigation nodes ######
 # Account navigation nodes
 REMOVE CMSNavigationNode;uid[unique=true];$contentCV[unique=true]
-;PersonalDetailsNavNode;
-;UpdateEmailNavNode;
-;ChangePasswordNavNode;
 ;SavedCartsNavNode;
 ;ConsentManagementNavNode;
-;CloseAccountNavNode;
 
 REMOVE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];
-;PersonalDetailsNavNodeEntry;
-;UpdateEmailNavNodeEntry;
-;ChangePasswordNavNodeEntry;
 ;SavedCartsNavNodeEntry;
 ;ConsentManagementNavNodeEntry;
-;CloseAccountNavNodeEntry;
 
 REMOVE CMSLinkComponent;$contentCV[unique=true];uid[unique=true]
-;;PersonalDetailsLink
-;;UpdateEmailLink
-;;UpdatePasswordLink
 ;;SavedCartsLink
 ;;ConsentManagementLink;ConsentManagementLink
-;;CloseAccountLink
 
 # Order Navigation nodes
 # component contains the OrderNavNode

@@ -197,7 +197,25 @@ INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;n
 
 # Set the order or the items in the My Account Menu
 UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];children(uid,$contentCV)
-;MyAccountNavNode;;OrderHistoryNavNode,AddressBookNavNode,PaymentDetailsNavNode,SignOutNavNode
+;MyAccountNavNode;;OrderHistoryNavNode,AddressBookNavNode,PaymentDetailsNavNode,PersonalDetailsNavNode,ChangePasswordNavNode,UpdateEmailNavNode,CloseAccountNavNode,SignOutNavNode
+
+
+###### Create Forgot/Reset Password Pages and Components ######
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;forgotPassword;Forgot Password Page;LoginPageTemplate;/forgotPassword
+;;resetPassword;Reset Password Page;LoginPageTemplate;/resetPassword
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
+;;LeftContentSlot-forgotPassword;Left Content Slot for Forgot Password;true;ForgotPasswordComponent
+;;LeftContentSlot-resetPassword;Left Content Slot for Reset Password;true;ResetPasswordComponent
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
+;;LeftContent-forgotPassword;LeftContentSlot;forgotPassword;LeftContentSlot-forgotPassword
+;;LeftContent-resetPassword;LeftContentSlot;resetPassword;LeftContentSlot-resetPassword
+
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
+;;ForgotPasswordComponent;Forgot Password Component;ForgotPasswordComponent;ForgotPasswordComponent
+;;ResetPasswordComponent;Reset New Password Component;ResetPasswordComponent;ResetPasswordComponent
 
 
 ###### Breadcrumb in SPA ######
@@ -244,4 +262,9 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 ###### Override page urls ######
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];label
 ;;login;/login
-;;notFound;/notFound
+;;notFound;/not-found
+;;storefinderPage;/store-finder
+;;update-email;/my-account/update-email
+;;updatePassword;/my-account/update-password
+;;update-profile;/my-account/update-profile
+;;close-account;/my-account/close-account

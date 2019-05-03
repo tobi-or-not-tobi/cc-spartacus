@@ -21,7 +21,7 @@ $siteMapLangCur=jaJpy,jaUsd,enJpy,enUsd,deJpy,deUsd,zhJpy,zhUsd
 $siteMapPage=Homepage,Product,CategoryLanding,Category,Store,Content,Custom
 $customSiteMapUrls=/Open-Catalogue/c/1?q=%3AtopRated%3AallPromotions%3ABOGOFElectronics%3AallPromotions%3A10DiscountCanonEOS450D%3AallPromotions%3AMultiBuyElectronics%3AallPromotions%3APerfectPartnerElectronics%3AallPromotions%3AProductBundleElectronics,/Brands/c/brands?q=%3Arelevance%3Abrand%3Abrand_5%3Acategory%3A575,/Open-Catalogue/Cameras/Hand-held-Camcorders/c/584?q=%3Arelevance%3Abrand%3Abrand_2,/Open-Catalogue/Components/Power-Supplies/c/816?q=%3Arelevance%3Abrand%3Abrand_5,/Open-Catalogue/Data-storage/Flash-Memory/c/902?q=%3Arelevance%3Abrand%3Abrand_18
 
-$fullPathElectronics=http://localhost:4200
+$fullPathElectronics=https://localhost:4200
 $language=en
 
 ### Site for spartacus
@@ -31,8 +31,8 @@ INSERT_UPDATE CMSSite;uid[unique=true];theme(code);channel(code);stores(uid);con
 UPDATE CMSSite;uid[unique=true];name[lang=$language]
 ;$spaSiteUid;"Spartacus Electronics Site"
 
-UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);defaultPreviewProduct(code, $productCV)
-;$spaSiteUid;575;2053367
+UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);defaultPreviewProduct(code, $productCV);defaultPreviewCatalog(id)
+;$spaSiteUid;575;2053367;$productCatalog
 
 ### Put spartacus into smart edit whitelist 
 INSERT_UPDATE SmartEditConfiguration;key[unique=true];value

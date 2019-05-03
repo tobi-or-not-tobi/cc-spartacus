@@ -57,20 +57,23 @@ public class SpaSampleAddOnSampleDataImportService extends DefaultAddonSampleDat
 				synchronizeSpaContentCatalog(context, jobItem);
 			}
 
-			// perform some cleaning
+			// 3- perform some cleaning
 			importImpexFile(context, importRoot + "/contentCatalogs/" + catalogName + "ContentCatalog/cleaning.impex", false);
 		}
 
-		// 3- import content catalog from impex
+		// 4- import content catalog from impex
 		super.importContentCatalog(context, importRoot, catalogName);
 
 		if (catalogName.equals("electronics"))
 		{
-			// 4- synchronize spaContentCatalog:staged->online
+			// 5- synchronize spaContentCatalog:staged->online
 			synchronizeContentCatalog(context, "electronics-spa", true);
 
-			// 5- give permission to cmsmanager to do the sync
+			// 6- give permission to cmsmanager to do the sync
 			importImpexFile(context, importRoot + "/contentCatalogs/" + catalogName + "ContentCatalog/sync.impex", false);
+
+			// 7- import email data
+			importImpexFile(context, importRoot + "/contentCatalogs/" + catalogName + "ContentCatalog/email-content.impex", false);
 		}
 	}
 
