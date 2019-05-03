@@ -18,8 +18,38 @@
 
 	<itemtypes>
  		<typegroup name="Components">
+
+		 	<!-- these types are not included in 1811 -->
+			<itemtype code="SiteContextSelectorComponent" autocreate="true"
+				generate="true" extends="SimpleCMSComponent"
+				jaloclass="de.hybris.platform.spacceleratorsamplesaddon.jalo.components.SiteContextSelectorComponent">
+				<description>A component for site context selector</description>
+				<attributes>
+					<attribute qualifier="context" type="java.lang.String">
+						<persistence type="property" />
+						<modifiers />
+						<description>site context: e.g. language or currency </description>
+					</attribute>
+
+				</attributes>
+			</itemtype>
 			
+			<itemtype code="FlexCmsComponent" autocreate="true"
+				generate="true" extends="SimpleCMSComponent"
+				jaloclass="de.hybris.platform.spacceleratorsamplesaddon.jalo.components.FlexCmsComponent">
+				<description>A component to replace JspIncludeComponent </description>
+				<attributes>
+					<attribute qualifier="flextype" type="java.lang.String">
+						<persistence type="property" />
+						<modifiers />
+						<description>used to select the corresponding frontend codes</description>
+					</attribute>
+
+				</attributes>
+			</itemtype>
 		</typegroup>
 	</itemtypes>
 	
+
+
 </items>
