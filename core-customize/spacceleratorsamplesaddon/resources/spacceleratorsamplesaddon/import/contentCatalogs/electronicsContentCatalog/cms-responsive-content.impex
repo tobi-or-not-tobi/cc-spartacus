@@ -12,118 +12,51 @@ $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 $siteResource=jar:de.hybris.platform.spacceleratorsamplesaddon.constants.SpacceleratorsamplesaddonConstants&/spacceleratorsamplesaddon/import/contentCatalogs/electronicsContentCatalog
 
-###### update homepage preview image ######
+###### Update homepage preview image ######
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
 ;;homepagePreview-spa;image/png;Homepage.png;$siteResource/images/Homepage.png;;;
 
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV)
 ;;homepage;homepagePreview-spa
 
+
 ####### Update MiniCartSlot ######
 UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
 ;;MiniCartSlot;MiniCart
 
-###### StoreFinder ######
-# Create ContentSlots
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
-;;StoreFinderSlot;Find a Store Link;true;StoreFinderLink
 
-# Create ContentSlotName for each page template
-INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true];validComponentTypes(code);compTypeGroup(code)
-;StoreFinder;ProductDetailsPageTemplate;CMSLinkComponent;;
-;StoreFinder;ErrorPageTemplate;CMSLinkComponent;;
-;StoreFinder;ProductListPageTemplate;CMSLinkComponent;;
-;StoreFinder;ProductGridPageTemplate;CMSLinkComponent;;
-;StoreFinder;SearchResultsListPageTemplate;CMSLinkComponent;;
-;StoreFinder;SearchResultsGridPageTemplate;CMSLinkComponent;;
-;StoreFinder;SearchResultsEmptyPageTemplate;CMSLinkComponent;;
-;StoreFinder;CategoryPageTemplate;CMSLinkComponent;;
-;StoreFinder;LandingPage1Template;CMSLinkComponent;;
-;StoreFinder;LandingPage2Template;CMSLinkComponent;;
-;StoreFinder;LandingPage3Template;CMSLinkComponent;;
-;StoreFinder;LandingPage4Template;CMSLinkComponent;;
-;StoreFinder;LandingPage5Template;CMSLinkComponent;;
-;StoreFinder;LandingPage6Template;CMSLinkComponent;;
-;StoreFinder;ContentPage1Template;CMSLinkComponent;;
-;StoreFinder;CartPageTemplate;CMSLinkComponent;;
-;StoreFinder;LoginPageTemplate;CMSLinkComponent;;
-;StoreFinder;CheckoutLoginPageTemplate;CMSLinkComponent;;
-;StoreFinder;MultiStepCheckoutSummaryPageTemplate;CMSLinkComponent;;
-;StoreFinder;OrderConfirmationPageTemplate;CMSLinkComponent;;
-;StoreFinder;AccountPageTemplate;CMSLinkComponent;;
-;StoreFinder;StoreFinderPageTemplate;CMSLinkComponent;;
-
-# Bind Content Slots to Page Templates
-INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
-;;StoreFinderSlot-ProductDetailsPage;StoreFinder;ProductDetailsPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-ErrorPage;StoreFinder;ErrorPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-ProductListPage;StoreFinder;ProductListPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-ProductGridPage;StoreFinder;ProductGridPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-SearchResultsListPage;StoreFinder;SearchResultsListPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-SearchResultsGridPage;StoreFinder;SearchResultsGridPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-SearchResultsEmpytPage;StoreFinder;SearchResultsEmptyPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-CategoryPage;StoreFinder;CategoryPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-LandingPage1;StoreFinder;LandingPage1Template;StoreFinderSlot;true
-;;StoreFinderSlot-LandingPage2;StoreFinder;LandingPage2Template;StoreFinderSlot;true
-;;StoreFinderSlot-LandingPage3;StoreFinder;LandingPage3Template;StoreFinderSlot;true
-;;StoreFinderSlot-LandingPage4;StoreFinder;LandingPage4Template;StoreFinderSlot;true
-;;StoreFinderSlot-LandingPage5;StoreFinder;LandingPage5Template;StoreFinderSlot;true
-;;StoreFinderSlot-LandingPage6;StoreFinder;LandingPage6Template;StoreFinderSlot;true
-;;StoreFinderSlot-ContentPage1;StoreFinder;ContentPage1Template;StoreFinderSlot;true
-;;StoreFinderSlot-CartPage;StoreFinder;CartPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-LoginPage;StoreFinder;LoginPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-CheckoutLoginPage;StoreFinder;CheckoutLoginPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-MultiStepCheckoutSummaryPage;StoreFinder;MultiStepCheckoutSummaryPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-OrderConfirmationPage;StoreFinder;OrderConfirmationPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-AccountPage;StoreFinder;AccountPageTemplate;StoreFinderSlot;true
-;;StoreFinderSlot-StoreFinderPage;StoreFinder;StoreFinderPageTemplate;StoreFinderSlot;true
-
-###### Sign out ######
-INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;target(code)[default='sameWindow']
-;;SignOutLink;SignOutLink;;SignOutLink;
-
-INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
-;SignOutNavNode;;Sign Out;MyAccountNavNode;;SignOutNavNode
-
-# create cms navigation entry for nvaigation child nodes
-INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
-;SignOutNavNodeEntry;;SignOutNavNodeEntry;SignOutNavNode;SignOutLink;
-
-###### SiteContextSelector ######
-INSERT_UPDATE SiteContextSelectorComponent;$contentCV[unique=true];uid[unique=true];name;context;&componentRef
+###### SiteContext Slot and Components ######
+INSERT_UPDATE CMSSiteContextComponent;$contentCV[unique=true];uid[unique=true];name;context(code);&componentRef
 ;;LanguageComponent;Site Languages;LANGUAGE;LanguageComponent
 ;;CurrencyComponent;Site Currencies;CURRENCY;CurrencyComponent
 
-# Create SiteContextSlot
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
 ;;SiteContextSlot;Site Context Slot;true;LanguageComponent,CurrencyComponent
 
-# Create ContentSlotName for each page template
 INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true];validComponentTypes(code);compTypeGroup(code)
-;SiteContext;ProductDetailsPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;ErrorPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;ProductListPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;ProductGridPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;SearchResultsListPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;SearchResultsGridPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;SearchResultsEmptyPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;CategoryPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;LandingPage1Template;SiteContextSelectorComponent;;
-;SiteContext;LandingPage2Template;SiteContextSelectorComponent;;
-;SiteContext;LandingPage3Template;SiteContextSelectorComponent;;
-;SiteContext;LandingPage4Template;SiteContextSelectorComponent;;
-;SiteContext;LandingPage5Template;SiteContextSelectorComponent;;
-;SiteContext;LandingPage6Template;SiteContextSelectorComponent;;
-;SiteContext;ContentPage1Template;SiteContextSelectorComponent;;
-;SiteContext;CartPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;LoginPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;CheckoutLoginPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;MultiStepCheckoutSummaryPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;OrderConfirmationPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;AccountPageTemplate;SiteContextSelectorComponent;;
-;SiteContext;StoreFinderPageTemplate;SiteContextSelectorComponent;;
+;SiteContext;ProductDetailsPageTemplate;CMSSiteContextComponent;;
+;SiteContext;ErrorPageTemplate;CMSSiteContextComponent;;
+;SiteContext;ProductListPageTemplate;CMSSiteContextComponent;;
+;SiteContext;ProductGridPageTemplate;CMSSiteContextComponent;;
+;SiteContext;SearchResultsListPageTemplate;CMSSiteContextComponent;;
+;SiteContext;SearchResultsGridPageTemplate;CMSSiteContextComponent;;
+;SiteContext;SearchResultsEmptyPageTemplate;CMSSiteContextComponent;;
+;SiteContext;CategoryPageTemplate;CMSSiteContextComponent;;
+;SiteContext;LandingPage1Template;CMSSiteContextComponent;;
+;SiteContext;LandingPage2Template;CMSSiteContextComponent;;
+;SiteContext;LandingPage3Template;CMSSiteContextComponent;;
+;SiteContext;LandingPage4Template;CMSSiteContextComponent;;
+;SiteContext;LandingPage5Template;CMSSiteContextComponent;;
+;SiteContext;LandingPage6Template;CMSSiteContextComponent;;
+;SiteContext;ContentPage1Template;CMSSiteContextComponent;;
+;SiteContext;CartPageTemplate;CMSSiteContextComponent;;
+;SiteContext;LoginPageTemplate;CMSSiteContextComponent;;
+;SiteContext;CheckoutLoginPageTemplate;CMSSiteContextComponent;;
+;SiteContext;MultiStepCheckoutSummaryPageTemplate;CMSSiteContextComponent;;
+;SiteContext;OrderConfirmationPageTemplate;CMSSiteContextComponent;;
+;SiteContext;AccountPageTemplate;CMSSiteContextComponent;;
+;SiteContext;StoreFinderPageTemplate;CMSSiteContextComponent;;
 
-# Bind Content Slots to Page Templates
 INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
 ;;SiteContextSlot-ProductDetailsPage;SiteContext;ProductDetailsPageTemplate;SiteContextSlot;true
 ;;SiteContextSlot-ErrorPage;SiteContext;ErrorPageTemplate;SiteContextSlot;true
@@ -147,3 +80,168 @@ INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];po
 ;;SiteContextSlot-OrderConfirmationPage;SiteContext;OrderConfirmationPageTemplate;SiteContextSlot;true
 ;;SiteContextSlot-AccountPage;SiteContext;AccountPageTemplate;SiteContextSlot;true
 ;;SiteContextSlot-StoreFinderPage;SiteContext;StoreFinderPageTemplate;SiteContextSlot;true
+
+
+###### SiteLinks Slot and Components ######
+# Create the missing pages
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;sale;Sale Information Page;ContentPage1Template;/sale
+;;help;Order Help Page;ContentPage1Template;/help
+;;contactUs;Contact Us Page;ContentPage1Template;/contact
+
+# Create placeholder data for sale and contact us
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;content
+;;SaleParagraphComponent;Sale Paragraph Component;"Sale"
+;;ContactUsParagraphComponent;Contact Us Paragraph Component;"Contact"
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+;;Section2A-Sale;Section 2A Slot for Sales Page;true;SaleParagraphComponent
+;;Section2A-ContactUs;Section 2A Slot for Contact Us Page;true;ContactUsParagraphComponent
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
+;;Section2A-Sale;Section2A;sale;Section2A-Sale
+;;Section2A-ContactUs;Section2A;contactUs;Section2A-ContactUs
+
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)[default='sameWindow']
+;;HelpLink;Help Link;/faq;HelpLink;HelpLink;
+;;ContactUsLink;Contact Us Link;/contact;ContactUsLink;ContactUsLink
+;;SaleLink;Sale Link;/sale;SaleLink;SaleLink
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+;;SiteLinksSlot;Slot contains some links;true;StoreFinderLink,SaleLink,ContactUsLink,HelpLink
+
+INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true];validComponentTypes(code);compTypeGroup(code)
+;SiteLinks;ProductDetailsPageTemplate;CMSLinkComponent;;
+;SiteLinks;ErrorPageTemplate;CMSLinkComponent;;
+;SiteLinks;ProductListPageTemplate;CMSLinkComponent;;
+;SiteLinks;ProductGridPageTemplate;CMSLinkComponent;;
+;SiteLinks;SearchResultsListPageTemplate;CMSLinkComponent;;
+;SiteLinks;SearchResultsGridPageTemplate;CMSLinkComponent;;
+;SiteLinks;SearchResultsEmptyPageTemplate;CMSLinkComponent;;
+;SiteLinks;CategoryPageTemplate;CMSLinkComponent;;
+;SiteLinks;LandingPage1Template;CMSLinkComponent;;
+;SiteLinks;LandingPage2Template;CMSLinkComponent;;
+;SiteLinks;LandingPage3Template;CMSLinkComponent;;
+;SiteLinks;LandingPage4Template;CMSLinkComponent;;
+;SiteLinks;LandingPage5Template;CMSLinkComponent;;
+;SiteLinks;LandingPage6Template;CMSLinkComponent;;
+;SiteLinks;ContentPage1Template;CMSLinkComponent;;
+;SiteLinks;CartPageTemplate;CMSLinkComponent;;
+;SiteLinks;LoginPageTemplate;CMSLinkComponent;;
+;SiteLinks;CheckoutLoginPageTemplate;CMSLinkComponent;;
+;SiteLinks;MultiStepCheckoutSummaryPageTemplate;CMSLinkComponent;;
+;SiteLinks;OrderConfirmationPageTemplate;CMSLinkComponent;;
+;SiteLinks;AccountPageTemplate;CMSLinkComponent;;
+;SiteLinks;StoreFinderPageTemplate;CMSLinkComponent;;
+
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
+;;SiteLinksSlot-ProductDetailsPage;SiteLinks;ProductDetailsPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-ErrorPage;SiteLinks;ErrorPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-ProductListPage;SiteLinks;ProductListPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-ProductGridPage;SiteLinks;ProductGridPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-SearchResultsListPage;SiteLinks;SearchResultsListPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-SearchResultsGridPage;SiteLinks;SearchResultsGridPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-SearchResultsEmpytPage;SiteLinks;SearchResultsEmptyPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-CategoryPage;SiteLinks;CategoryPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-LandingPage1;SiteLinks;LandingPage1Template;SiteLinksSlot;true
+;;SiteLinksSlot-LandingPage2;SiteLinks;LandingPage2Template;SiteLinksSlot;true
+;;SiteLinksSlot-LandingPage3;SiteLinks;LandingPage3Template;SiteLinksSlot;true
+;;SiteLinksSlot-LandingPage4;SiteLinks;LandingPage4Template;SiteLinksSlot;true
+;;SiteLinksSlot-LandingPage5;SiteLinks;LandingPage5Template;SiteLinksSlot;true
+;;SiteLinksSlot-LandingPage6;SiteLinks;LandingPage6Template;SiteLinksSlot;true
+;;SiteLinksSlot-ContentPage1;SiteLinks;ContentPage1Template;SiteLinksSlot;true
+;;SiteLinksSlot-CartPage;SiteLinks;CartPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-LoginPage;SiteLinks;LoginPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-CheckoutLoginPage;SiteLinks;CheckoutLoginPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-MultiStepCheckoutSummaryPage;SiteLinks;MultiStepCheckoutSummaryPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-OrderConfirmationPage;SiteLinks;OrderConfirmationPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-AccountPage;SiteLinks;AccountPageTemplate;SiteLinksSlot;true
+;;SiteLinksSlot-StoreFinderPage;SiteLinks;StoreFinderPageTemplate;SiteLinksSlot;true
+
+
+###### Error Page Section ######
+# Create components using existing for error page
+INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true];validComponentTypes(code);compTypeGroup(code)
+;TopContent;ErrorPageTemplate;;wide
+
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;content
+;;PageNotFoundParagraphComponent;Page Not Found Paragraph Component;"<h2>Oops!</h2><h3>We couldn't find the page you are looking for.</h3><p>Here are some useful links instead:</p>"
+
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)[default='sameWindow']
+;;CartLink;Contact Us Link;/cart;CartLink;CartLink
+
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
+;;MiddleContent-Errorpage;PageNotFoundParagraphComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+;;TopContent-Errorpage;Top Content Slot for Error Page;true;ElectronicsErrorpageBannerComponent;
+;;BottomContent-Errorpage;Bottom Content Slot for Error Page;true;HomepageNavLink,FAQLink,CartLink
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
+;;TopContent-Errorpage;TopContent;notFound;TopContent-Errorpage
+;;BottomContent-Errorpage;BottomContent;notFound;BottomContent-Errorpage
+
+
+###### My Account Section ######
+# Create additional links
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;target(code)[default='sameWindow']
+;;SignOutLink;SignOutLink;/logout;SignOutLink;
+
+# Create additional Navvigation Nodes
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+;SignOutNavNode;;Sign Out;MyAccountNavNode;;SignOutNavNode
+
+# Create additional cms navigation entries
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
+;SignOutNavNodeEntry;;SignOutNavNodeEntry;SignOutNavNode;SignOutLink;
+
+# Set the order or the items in the My Account Menu
+UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];children(uid,$contentCV)
+;MyAccountNavNode;;OrderHistoryNavNode,AddressBookNavNode,PaymentDetailsNavNode,SignOutNavNode
+
+
+###### Breadcrumb in SPA ######
+# remove breadcrumb from NavigationBar
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+;;NavigationBarSlot;ElectronicsCategoryNavComponent
+
+# add breadcrumb to BottomHeaderSlot
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+;;BottomHeaderSlot;breadcrumbComponent
+
+# clear BottomHeaderSlot for home page (replaced by an empty slot)
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;HomepageBottomHeaderSlot;Homepage Bottom Header Slot;
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV);contentSlot(uid,$contentCV)[unique=true]
+;;BottomHeaderSlot-homepage;BottomHeaderSlot;homepage;HomepageBottomHeaderSlot
+
+# clear BottomHeaderSlot slot for category/578; add breadcrumb component to section1
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;SLRCamerasBottomHeaderSlot;SLRCameras Category Page Bottom Header Slot;
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV);contentSlot(uid,$contentCV)[unique=true]
+;;BottomHeaderSlot-SLRCamerasCategoryPage;BottomHeaderSlot;SLRCamerasCategoryPage;SLRCamerasBottomHeaderSlot
+
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+;;Section1Slot-SLRCameras;ElectronicsSLRSplashBannerComponent,breadcrumbComponent
+
+
+###### Create Register Page ######
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;register;Register Page;AccountPageTemplate;/register
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
+;;BodyContentSlot-register;Body Content Slot for Register;true;RegisterCustomerComponent
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
+;;BodyContent-register;BodyContent;register;BodyContentSlot-register
+
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
+;;RegisterCustomerComponent;Register Customer Component;RegisterCustomerComponent;RegisterCustomerComponent
+
+
+###### Override page urls ######
+UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];label
+;;login;/login
+;;notFound;/notFound

@@ -39,27 +39,39 @@ public class SpaSampleAddOnSampleDataImportService extends DefaultAddonSampleDat
 	@Override
 	protected void importContentCatalog(final SystemSetupContext context, final String importRoot, final String catalogName)
 	{
-		// 1- create new catalog
-		importImpexFile(context, importRoot + "/contentCatalogs/" + catalogName + "ContentCatalog/catalog.impex", false);
-
-		// 2- sync electronicsContentCatalog:Staged->electronics-spaContentCatalog:Staged
-		final CatalogVersionModel catalog = getCatalogVersionService().getCatalogVersion("electronics-spaContentCatalog", "Staged");
-		List<SyncItemJobModel> synItemsJobs = catalog.getIncomingSynchronizations();
-		if (synItemsJobs.size() > 0)
+		if (catalogName.equals("electronics"))
 		{
-			SyncItemJobModel job = synItemsJobs.get(0);
-			final SyncItemJob jobItem = getModelService().getSource(job);
-			synchronizeSpaContentCatalog(context, jobItem);
+			// 1- create new catalog
+			importImpexFile(context, importRoot + "/contentCatalogs/" + catalogName + "ContentCatalog/catalog.impex", false);
+
+			// 2- sync
+			// electronicsContentCatalog:Staged->electronics-spaContentCatalog:Staged
+
+			final CatalogVersionModel catalog = getCatalogVersionService().getCatalogVersion("electronics-spaContentCatalog",
+					"Staged");
+			List<SyncItemJobModel> synItemsJobs = catalog.getIncomingSynchronizations();
+			if (synItemsJobs.size() > 0)
+			{
+				SyncItemJobModel job = synItemsJobs.get(0);
+				final SyncItemJob jobItem = getModelService().getSource(job);
+				synchronizeSpaContentCatalog(context, jobItem);
+			}
+
+			// perform some cleaning
+			importImpexFile(context, importRoot + "/contentCatalogs/" + catalogName + "ContentCatalog/cleaning.impex", false);
 		}
 
 		// 3- import content catalog from impex
 		super.importContentCatalog(context, importRoot, catalogName);
 
-		// 4- synchronize spaContentCatalog:staged->online
-		synchronizeContentCatalog(context, "electronics-spa", true);
-		
-		// 5- give permission to cmsmanager to do the sync
-		importImpexFile(context, importRoot + "/contentCatalogs/" + catalogName + "ContentCatalog/sync.impex", false);
+		if (catalogName.equals("electronics"))
+		{
+			// 4- synchronize spaContentCatalog:staged->online
+			synchronizeContentCatalog(context, "electronics-spa", true);
+
+			// 5- give permission to cmsmanager to do the sync
+			importImpexFile(context, importRoot + "/contentCatalogs/" + catalogName + "ContentCatalog/sync.impex", false);
+		}
 	}
 
 	private void synchronizeSpaContentCatalog(final SystemSetupContext context, SyncItemJob syncJobItem)

@@ -31,3 +31,9 @@ $targetContentCV=targetVersion(catalog(id[default=$spaContentCatalog]),version[d
 
 INSERT_UPDATE CatalogVersionSyncJob;code[unique=true];$sourceContentCV;$targetContentCV;syncPrincipals(uid)[mode=append];syncPrincipalsOnly[default=false];removeMissingItems;createNewItems;rootTypes(code)[mode=append]
 ;$syncJob;;;cmsmanagergroup;;true;true;CMSItem,CMSRelation,Media,MediaContainer
+
+
+###### Site Context ######
+INSERT_UPDATE CmsSiteContext;code[unique=true];name[lang=$language]
+;LANGUAGE;"language"
+;CURRENCY;"currency"

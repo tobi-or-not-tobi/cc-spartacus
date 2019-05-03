@@ -18,19 +18,7 @@
 
 	<itemtypes>
  		<typegroup name="Components">
-			<itemtype code="SiteContextSelectorComponent" autocreate="true"
-				generate="true" extends="SimpleCMSComponent"
-				jaloclass="de.hybris.platform.spacceleratorsamplesaddon.jalo.components.SiteContextSelectorComponent">
-				<description>A component for site context selector</description>
-				<attributes>
-					<attribute qualifier="context" type="java.lang.String">
-						<persistence type="property" />
-						<modifiers />
-						<description>site context: e.g. language or currency </description>
-					</attribute>
-
-				</attributes>
-			</itemtype>
+			
 		</typegroup>
 	</itemtypes>
 	

@@ -14,6 +14,8 @@ $spaContentCatalog=electronics-spaContentCatalog
 $spaContentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$spaContentCatalog]),CatalogVersion.version[default=Staged])[default=$spaContentCatalog:Staged]
 
 $productCatalog=electronicsProductCatalog
+$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
 $storeUid=electronics
 $siteMapLangCur=jaJpy,jaUsd,enJpy,enUsd,deJpy,deUsd,zhJpy,zhUsd
 $siteMapPage=Homepage,Product,CategoryLanding,Category,Store,Content,Custom
@@ -28,6 +30,9 @@ INSERT_UPDATE CMSSite;uid[unique=true];theme(code);channel(code);stores(uid);con
 
 UPDATE CMSSite;uid[unique=true];name[lang=$language]
 ;$spaSiteUid;"Spartacus Electronics Site"
+
+UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);defaultPreviewProduct(code, $productCV)
+;$spaSiteUid;575;2053367
 
 ### Put spartacus into smart edit whitelist 
 INSERT_UPDATE SmartEditConfiguration;key[unique=true];value
