@@ -3,10 +3,6 @@
         {
             "name": "spartacus",
             "path": "spartacus"
-        },
-        {
-            "name": "any",
-            "path": "any"
         }
     ]
 }
