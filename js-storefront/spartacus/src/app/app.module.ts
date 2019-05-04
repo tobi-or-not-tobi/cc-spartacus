@@ -21,13 +21,17 @@ import { AppComponent } from './app.component';
       },
       i18n: {
         resources: translations
-      }
+      },
       // use media from api aspect
       // backend: {
       //   media: {
       //     baseUrl: 'https://accstorefront.cqz1m-softwarea1-d23-public.model-t.cc.commerce.ondemand.com/'
       //   }
       // }
+      icon: {
+        prefix: 'fa-',
+        iconClass: 'fas'
+      }
     }),
     ConfigModule.withConfigFactory(defaultCmsContentConfig)
   ],
