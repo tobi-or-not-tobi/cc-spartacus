@@ -21,12 +21,13 @@ import { AppComponent } from './app.component';
       },
       i18n: {
         resources: translations
-      },
-      backend: {
-        media: {
-          baseUrl: 'https://accstorefront.cqz1m-softwarea1-d23-public.model-t.cc.commerce.ondemand.com/'
-        }
       }
+      // use media from api aspect
+      // backend: {
+      //   media: {
+      //     baseUrl: 'https://accstorefront.cqz1m-softwarea1-d23-public.model-t.cc.commerce.ondemand.com/'
+      //   }
+      // }
     }),
     ConfigModule.withConfigFactory(defaultCmsContentConfig)
   ],
