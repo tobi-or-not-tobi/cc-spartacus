@@ -20,7 +20,7 @@
  		<typegroup name="Components">
 
 		 	<!-- these types are not included in 1811 -->
-			<itemtype code="SiteContextSelectorComponent" autocreate="true"
+			<itemtype code="CMSSiteContextComponent" autocreate="true"
 				generate="true" extends="SimpleCMSComponent"
 				jaloclass="de.hybris.platform.spacceleratorsamplesaddon.jalo.components.SiteContextSelectorComponent">
 				<description>A component for site context selector</description>
@@ -34,12 +34,12 @@
 				</attributes>
 			</itemtype>
 			
-			<itemtype code="FlexCmsComponent" autocreate="true"
+			<itemtype code="CMSFlexComponent" autocreate="true"
 				generate="true" extends="SimpleCMSComponent"
 				jaloclass="de.hybris.platform.spacceleratorsamplesaddon.jalo.components.FlexCmsComponent">
 				<description>A component to replace JspIncludeComponent </description>
 				<attributes>
-					<attribute qualifier="flextype" type="java.lang.String">
+					<attribute qualifier="flexType" type="java.lang.String">
 						<persistence type="property" />
 						<modifiers />
 						<description>used to select the corresponding frontend codes</description>
