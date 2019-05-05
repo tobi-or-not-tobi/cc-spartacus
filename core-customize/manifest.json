@@ -188,8 +188,8 @@
                     "contextPath": "/medias"
                 },
                 {
-                    "name": "ycommercewebservices",
-                    "contextPath": "/rest"
+                    "name": "yacceleratorstorefront",
+                    "contextPath": "/yacceleratorstorefront"
                 }
             ]
         },
